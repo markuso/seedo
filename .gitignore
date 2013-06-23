@@ -1,0 +1,7 @@
+.DS_Store
+_app
+node_modules
+components
+buildAssets
+*.log
+*.sublime-workspace

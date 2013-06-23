@@ -1,0 +1,15 @@
+.DS_Store
+app
+node_modules
+components
+scaffold
+test
+buildAssets
+Cakefile
+bower.json
+.bowerrc
+.gitignore
+.modulusignore
+karma*
+*.sublime-*
+*.log

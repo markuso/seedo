@@ -1,0 +1,11 @@
+
+//- != js('//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+//- != js('//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js')
+!= js('site-combined')
+
+if settings.analyticsID
+  script
+    var _gaq=[['_setAccount','#{settings.analyticsID}'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));

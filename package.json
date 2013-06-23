@@ -1,0 +1,50 @@
+{
+  "name": "seedo",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Markus Ochel <markus.ochel@gmail.com> (http://www.markuso.com)",
+  "scripts": {
+    "install": "node node_modules/coffee-script/bin/cake build",
+    "start": "node server.js",
+    "test": "NODE_ENV=testing mocha --require should --compilers coffee:coffee-script --colors --reporter spec test/server"
+  },
+  "dependencies": {
+    "express": "3.x",
+    "coffee-script": "1.6.x",
+    "jade": "0.30.x",
+    "connect-assets": "2.4.x",
+    "connect-flash": "~0.1.1",
+    "connect-mongo": "~0.3.2",
+    "stylus": "0.32.x",
+    "nib": "0.9.x",
+    "markdown": "0.4.0",
+    "mongoose": "3.6.x",
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6",
+    "passport-google-oauth": "~0.1.5",
+    "passport-facebook": "~0.1.5",
+    "passport-twitter": "~0.1.5",
+    "passport-github": "~0.1.5"
+  },
+  "devDependencies": {
+    "coffee-script": "*",
+    "mocha": "*",
+    "should": "*",
+    "supertest": "*",
+    "request": "*",
+    "supervisor": "*",
+    "docco-husky": "*",
+    "wrench": "*",
+    "which": "*",
+    "puts": "*",
+    "node-inspector": "*",
+    "ejs": "*"
+  },
+  "engines": {
+    "node": "~0.10.x",
+    "npm": "1.2.x"
+  },
+  "contributors": [
+    "Markus Ochel <markus.ochel@gmail.com> (http://www.markuso.com)"
+  ]
+}

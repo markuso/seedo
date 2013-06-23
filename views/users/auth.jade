@@ -1,0 +1,36 @@
+extends ../layouts/default
+
+block main
+  h1= title
+
+block content
+  br
+  .row.offset1
+    a.btn.btn-large.span2(href='/auth/google')
+      i.icon-google-plus-sign.icon-2x
+      br
+      | Sign In with 
+      b Google+
+    a.btn.btn-large.span2(href='/auth/facebook')
+      i.icon-facebook-sign.icon-2x
+      br
+      | Sign In with 
+      b Facebook
+    a.btn.btn-large.span2(href='/auth/twitter')
+      i.icon-twitter-sign.icon-2x
+      br
+      | Sign In with 
+      b Twitter
+    a.btn.btn-large.span2(href='/auth/github')
+      i.icon-github-sign.icon-2x
+      br
+      | Sign In with 
+      b GitHub
+
+  center.row
+    br
+    h3.muted or
+    br
+
+  .login.row
+    block auth

@@ -1,0 +1,62 @@
+!!! 5
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title= settings.app.name
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width')
+    
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css')
+    
+    != css('app')
+  
+  body(ng-app='App')
+    //if lt IE 7
+      p.chromeframe
+        | You are using an outdated browser.
+        a(href='http://browsehappy.com/') Upgrade your browser today
+        | or
+        a(href='http://www.google.com/chromeframe/?redirect=true') install Google Chrome Frame
+        | to better experience this site.
+    //if lt IE 9
+      script(src='/js/lib/es5-shim.min.js')
+      script(src='/js/lib/json3.min.js')
+    
+    script
+      Object.defineProperty || document.write('<script src=\"/js/lib/es5-shim.min.js\"><\\/script>');
+  
+    .wrapper  
+      .navbar.navbar-fixed-top(role='navigation')
+        .navbar-inner
+          .container
+            a.brand(href='/') #{settings.app.name}
+            .nav-collapse.collapse
+              ul.nav
+                li
+                  a(href='/app') App
+              ul.nav.pull-right
+                if (req.isAuthenticated())
+                  li
+                    a(href="/users/"+req.user.id, title="Profile")
+                      img.avatar(src=req.user.avatar)
+                      = req.user.name
+                  li
+                    a(href="/logout", title="logout") Logout
+                else
+                  li
+                    a(href="/login", title="Login") Login
+      
+      .container
+        .main-content(ng-view='ng-view')
+
+    //- != js('//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+    //- != js('//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js')
+    != js('app-combined')
+    
+    if settings.analyticsID
+      script
+        var _gaq=[['_setAccount','#{settings.analyticsID}'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));

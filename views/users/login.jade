@@ -1,0 +1,19 @@
+extends auth
+
+block auth
+  form.offset3.span6.login(action="/users/session", method="post")
+    input(type='hidden', name='_csrf', value="#{csrf_token}")
+
+    p.error= message
+
+    .controls
+      input.span6.input-large#email(type='email', name='email', placeholder='Email')
+
+    .controls
+      input.span6.input-large#password(type='password', name='password', placeholder='Password')
+
+    .controls
+      button.btn.btn-primary.btn-large(type='submit') Login
+      &nbsp;
+      | or&nbsp;
+      a.show-signup(href="/signup") sign up

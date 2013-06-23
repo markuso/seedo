@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "path": "/Users/Markuso/NodeApps/seedo", 
+      "folder_exclude_patterns": [
+        "node_modules", 
+        "components"
+      ], 
+      "file_exclude_patterns": [
+        "*.sublime-workspace"
+      ]
+    }
+  ],
+  "settings": {
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true
+  }
+}
