@@ -4,19 +4,17 @@
   "private": true,
   "author": "Markus Ochel <markus.ochel@gmail.com> (http://www.markuso.com)",
   "scripts": {
-    "install": "node node_modules/coffee-script/bin/cake build",
-    "start": "node server.js",
-    "test": "NODE_ENV=testing mocha --require should --compilers coffee:coffee-script --colors --reporter spec test/server"
+    "start": "node ./node_modules/supervisor/lib/cli-wrapper.js -w app,views -e js server",
+    "test": "NODE_ENV=testing mocha --colors --reporter spec --require should --require ./server test/server"
   },
   "dependencies": {
     "express": "3.x",
-    "coffee-script": "1.6.x",
     "jade": "0.30.x",
     "connect-assets": "2.4.x",
     "connect-flash": "~0.1.1",
     "connect-mongo": "~0.3.2",
+    "coffee-script": "~1.6.3",
     "stylus": "0.32.x",
-    "nib": "0.9.x",
     "markdown": "0.4.0",
     "mongoose": "3.6.x",
     "passport": "~0.1.17",
@@ -27,18 +25,15 @@
     "passport-github": "~0.1.5"
   },
   "devDependencies": {
-    "coffee-script": "*",
     "mocha": "*",
     "should": "*",
     "supertest": "*",
     "request": "*",
     "supervisor": "*",
-    "docco-husky": "*",
-    "wrench": "*",
-    "which": "*",
-    "puts": "*",
-    "node-inspector": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "grunt": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-exec": "~0.4.2"
   },
   "engines": {
     "node": "~0.10.x",

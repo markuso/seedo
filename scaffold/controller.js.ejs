@@ -1,0 +1,67 @@
+'use strict';
+
+/*!
+ * <%=: name | capitalize %> controllers
+ */
+
+var mongoose = require('mongoose');
+var <%=: name | capitalize %> = mongoose.model('<%=: name | capitalize %>');
+
+module.exports = {
+
+  /**
+   * Lists all <%=: name %>s
+   */
+
+  all: function(req, res) {
+    <%=: name | capitalize %>.find({}, function(err, <%=: name %>s) {
+      res.send(<%=: name %>s);
+    });
+  },
+
+  /**
+   * Gets <%=: name %> by id
+   */
+
+  get: function(req, res) {
+    <%=: name | capitalize %>.findById(req.params.id, function(err, <%=: name %>) {
+      if (err) return res.send(500, err);
+      res.send(<%=: name %>);
+    });
+  },
+
+  /**
+   * Creates new <%=: name %> with data from `req.body`
+   */
+
+  create: function(req, res) {
+    var <%=: name %> = new <%=: name | capitalize %>(req.body);
+    <%=: name %>.save(function(err, <%=: name %>) {
+      if (err) return res.send(500, err);
+      res.send(<%=: name %>);
+    });
+  },
+
+  /**
+   * Updates <%=: name %> with data from `req.body`
+   */
+
+  update: function(req, res) {
+    <%=: name | capitalize %>.findByIdAndUpdate(req.params.id, { $set: req.body }, function(err, <%=: name %>) {
+      if (err) return res.send(500, err);
+      res.send(<%=: name %>);
+    });
+  },
+
+  /**
+   * Deletes <%=: name %> by id
+   */
+   
+  delete: function(req, res) {
+    <%=: name | capitalize %>.findByIdAndRemove(req.params.id, function(err) {
+      if (err) return res.send(500, err);
+      res.send({});
+    });
+  }
+
+};

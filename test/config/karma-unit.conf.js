@@ -10,16 +10,16 @@ files = [
   './assets/js/lib/angular.min.js',
   './assets/js/lib/angular-mocks.js',
   './assets/js/lib/moment.min.js',
-  './assets/js/app.coffee',
-  './assets/js/controllers/*.coffee',
-  './assets/js/directives/*.coffee',
-  './assets/js/services/*.coffee',
-  './test/mock/**/*.coffee',
-  './test/client/**/*.coffee'
+  './assets/js/app.js',
+  './assets/js/controllers/*.js',
+  './assets/js/directives/*.js',
+  './assets/js/services/*.js',
+  './test/mock/**/*.js',
+  './test/client/**/*.js'
 ];
 
 preprocessors = {
-  '**/*.coffee': 'coffee'
+  // '**/*.coffee': 'coffee'
 };
 
 // list of files to exclude

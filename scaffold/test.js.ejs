@@ -1,0 +1,91 @@
+'use strict';
+
+/*!
+ * <%=: name | capitalize %> model tests
+ */
+
+var request  = require('supertest');
+var mongoose = require('mongoose');
+var <%=: name | capitalize %> = mongoose.model('<%=: name | capitalize %>');
+var app = require(process.cwd() + '/app');
+
+var INITIAL_DATA = {
+  name: 'Some Name'
+};
+
+var UPDATED_DATA = {
+  name: 'Another Name'
+};
+
+var cleanDB = function(done) {
+  <%=: name | capitalize %>.remove({}, function() {
+    done();
+  });
+};
+
+describe('<%=: name | capitalize %>', function() {
+  var <%=: name %>Id = null;
+
+  before(cleanDB);
+
+  it('should be created', function(done) {
+    request(app).post('/api/<%=: name %>s').send(INITIAL_DATA).expect(201, function(err, res) {
+      res.body.should.include(INITIAL_DATA);
+      res.body.should.have.property('_id');
+      res.body['_id'].should.be.ok;
+      <%=: name %>Id = res.body['_id'];
+      done();
+    });
+  });
+
+  it('should be accessible by id', function(done) {
+    request(app).get('/api/<%=: name %>s/' + <%=: name %>Id).expect(200, function(err, res) {
+      res.body.should.include(INITIAL_DATA);
+      res.body.should.have.property('_id');
+      res.body['_id'].should.be.eql(<%=: name %>Id);
+      done();
+    });
+  });
+
+  it('should be listed in list', function(done) {
+    request(app).get('/api/<%=: name %>s').expect(200, function(err, res) {
+      res.body.should.be.an.instanceof(Array);
+      res.body.should.have.length(1);
+      res.body[0].should.include(INITIAL_DATA);
+      done();
+    });
+  });
+
+  it('should be updated', function(done) {
+    request(app).put('/api/<%=: name %>s/' + <%=: name %>Id).send(UPDATED_DATA).expect(200, function(err, res) {
+      res.body.should.include(UPDATED_DATA);
+      done();
+    });
+  });
+
+  it('should be persisted after update', function(done) {
+    request(app).get('/api/<%=: name %>s/' + <%=: name %>Id).expect(200, function(err, res) {
+      res.body.should.include(UPDATED_DATA);
+      res.body.should.have.property('_id');
+      res.body['_id'].should.be.eql(<%=: name %>Id);
+      done();
+    });
+  });
+
+  it('should be removed', function(done) {
+    request(app).del('/api/<%=: name %>s/' + <%=: name %>Id).expect(200, function(err, res) {
+      done();
+    });
+  });
+
+  it('should not be listed after remove', function(done) {
+    request(app).get('/api/<%=: name %>s').expect(200, function(err, res) {
+      res.body.should.be.an.instanceof(Array);
+      res.body.should.have.length(0);
+      done();
+    });
+  });
+
+  after(cleanDB);
+
+});

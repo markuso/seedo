@@ -8,11 +8,11 @@ files = [
   JASMINE,
   JASMINE_ADAPTER,
   './assets/js/lib/moment.min.js',
-  './test/other/**/*.coffee'
+  './test/other/**/*.js'
 ];
 
 preprocessors = {
-  '**/*.coffee': 'coffee'
+  // '**/*.coffee': 'coffee'
 };
 
 // list of files to exclude
