@@ -1,3 +1,7 @@
+# SEEDO
+
+A seed Node.js project starter for Express and AngularJS based development.
+
 ## Develpomment Stack
 
 - Node.js
@@ -13,7 +17,7 @@
 - Passort
 - Moment
 
-## Tools
+## Tools Used
 
 - Karma
 - Mocha
@@ -22,7 +26,7 @@
 
 ## Development Tasks
 
-    $ npm install      // install all npm dependency p
+    $ npm install      // install all npm dependencies
     $ bower install    // install all bower dependency components
 
     $ grunt            // defaults to `grunt server`
@@ -33,7 +37,7 @@
     
     $ grunt --help     // get a list of available tasks
 
-Available tasks:
+Available Grunt tasks:
 
           exec  Execute shell commands. *                   
           copy  Copy files. * 
