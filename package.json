@@ -2,7 +2,7 @@
   "name": "seedo",
   "version": "0.1.0",
   "private": true,
-  "author": "Markus Ochel <markus.ochel@gmail.com> (http://www.markuso.com)",
+  "author": "Markuso (https://twitter.com/markuso777)",
   "scripts": {
     "start": "node ./node_modules/supervisor/lib/cli-wrapper.js -w app,views -e js server",
     "test": "NODE_ENV=testing mocha --colors --reporter spec --require should --require ./server test/server"
@@ -40,6 +40,6 @@
     "npm": "1.2.x"
   },
   "contributors": [
-    "Markus Ochel <markus.ochel@gmail.com> (http://www.markuso.com)"
+    "Markuso (https://twitter.com/markuso777)"
   ]
 }
